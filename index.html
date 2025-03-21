@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Frontend Mentor | Mortgage repayment calculator</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body
+    class="*:m-0 *:p-0 *:box-border"
+    style="font-family: 'Plus Jakarta Sans', sans-serif"
+  >
+    <div
+      class="w-full h-screen min-h-[900px] flex items-center justify-center bg-[hsl(202,86%,94%)]"
+    >
+      <div
+        class="w-[1100px] h-[600px] bg-white rounded-3xl flex items-start justify-center overflow-hidden"
+      >
+        <div class="w-6/12 h-full  p-10 ">
+          <div class="flex items-center justify-between w-full mb-8">
+            <h1 class="text-[hsl(202,55%,16%)] text-2xl font-bold">Mortgage Calculator</h1>
+            <button class="text-[hsl(200,26%,54%)] underline decoration-1">Clear All</button>
+          </div>
+          <form
+            action="/index.html"
+            method="get"
+            enctype="application/x-www-form-urlencoded"
+          >
+            <label for="amount" class="text-sm text-[hsl(200,26%,54%)] "> Mortgage Amount </label><br />
+            <input  step="0.1" type="number" class="mb-5 mt-2 w-full text-[hsl(202,55%,16%)] font-bold  pl-16 p-2  border rounded border-[hsl(200,26%,54%)]" inputmode="numeric" id="amount" name="amount" /><br />
+            <div class="relative bottom-[60px] w-14 h-[38px] flex items-center justify-center left-[1px]  rounded-l-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]">£</div>
+            <div class="flex justify-between mb-5">
+              <label class="text-sm text-[hsl(200,26%,54%)] ">
+                Mortgage Term
+                <br />
+                <input  step="0.1"  class="mt-2 w-56 p-2 border text-[hsl(202,55%,16%)] font-bold  pl-4 pr-[100px] rounded-md  border-[hsl(200,26%,54%)]" type="number" id="Term" name="Term" />
+                <div class="relative bottom-[36px] w-14 h-[34px] flex items-center justify-center left-[166px]  rounded-r-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]">years</div>
+              </label>
+
+              <label class=" text-sm text-[hsl(200,26%,54%)]">
+                Interest Rate <br />
+                <input step="0.1" class="mt-2 w-56 p-2 border text-[hsl(202,55%,16%)] font-bold  pl-4 pr-[100px] rounded-md  border-[hsl(200,26%,54%)]" type="number" id="Rate" name="Rate" />
+                <div class="relative bottom-[36px] w-14 h-[34px] flex items-center justify-center left-[166px]  rounded-r-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]">%</div>
+              </label>
+            </div>
+
+            <label class="text-sm text-[hsl(200,26%,54%)]">Mortgage Type</label><br />
+            <div class=" mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)]">
+
+              <label class="text-lg font-semibold cursor-pointer">
+                <input  class=" mr-4 scale-150" type="radio" name="MortgageType" value="Repayment" />
+                Repayment </label
+                >
+              </div>
+                <div class=" mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)]"> 
+
+                  <label class="text-lg font-semibold cursor-pointer">
+                    <input class="mr-4 scale-150" type="radio" name="MortgageType" value="InterestOnly" />
+                    Interest Only
+                  </label>
+                </div>
+            
+            <button type="submit" class="mt-5 bg-[hsl(61,70%,52%)] py-3 px-8 rounded-full flex"><img class="mr-2" src="assets/images/icon-calculator.svg" alt=""> Calculate Repayments</button>
+          </form>
+        </div>
+        <div class="w-6/12 h-full bg-[hsl(202,55%,16%)] rounded-bl-[120px] flex items-center justify-center flex-col">
+          <img class="mb-5" src="assets/images/illustration-empty.svg" alt="Empty" />
+          <h2 class="text-white mb-5 text-2xl">Results shown here</h2>
+          <p class="text-[hsl(203,41%,72%)] text-center max-w-lg px-2 text-sm">
+            Complete the form and click “calculate repayments” to see what your
+            monthly repayments would be.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty results start -->
+
+    <!-- Results shown here
+
+  Complete the form and click “calculate repayments” to see what 
+  your monthly repayments would be. -->
+
+    <!-- Empty results end -->
+
+    <!-- Completed results start -->
+
+    <!-- Your results
+
+  Your results are shown below based on the information you provided. 
+  To adjust the results, edit the form and click “calculate repayments” again.
+
+  Your monthly repayments
+
+  Total you'll repay over the term -->
+
+    <!-- Completed results end -->
+  </body>
+</html>
