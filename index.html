@@ -48,7 +48,7 @@
             <button class="text-[hsl(200,26%,54%)] underline decoration-1">Clear All</button>
           </div>
           <form
-            action="/index.html"
+          id="mortgageForm"
             method="get"
             enctype="application/x-www-form-urlencoded"
           >
@@ -71,22 +71,31 @@
             </div>
 
             <label class="text-sm text-[hsl(200,26%,54%)]">Mortgage Type</label><br />
-            <div class=" mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)]">
+    <!-- Option 1 -->
+    <div class="radio-container mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)] transition-all cursor-pointer">
+      <label class="text-lg font-semibold flex items-center gap-3 cursor-pointer">
+          <input class="hidden" type="radio" name="MortgageType" value="Repayment" id="Repayment" />
+          <span class="w-5 h-5 border border-gray-500 rounded-full flex items-center justify-center">
+              <span class="w-3 h-3 bg-[hsl(61,70%,52%)] outline outline-offset-2 outline-2 outline-[hsl(61,70%,52%)] rounded-full opacity-0 transition-opacity"></span>
+          </span>
+          Repayment
+      </label>
+  </div>
 
-              <label class="text-lg font-semibold cursor-pointer">
-                <input  class=" mr-4 scale-150" type="radio" name="MortgageType" value="Repayment" />
-                Repayment </label
-                >
-              </div>
-                <div class=" mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)]"> 
+  <!-- Option 2 -->
+  <div class="radio-container mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)] transition-all cursor-pointer">
+      <label class="text-lg font-semibold flex items-center gap-3 cursor-pointer">
+          <input class="hidden" type="radio" name="MortgageType" value="InterestOnly" id="InterestOnly" />
+          <span class="w-5 h-5 border border-gray-500 rounded-full flex items-center justify-center">
+              <span class="w-3 h-3 bg-[hsl(61,70%,52%)] outline outline-offset-2 outline-2 outline-[hsl(61,70%,52%)] rounded-full opacity-0 transition-opacity"></span>
+          </span>
+          Interest Only
+      </label>
+  </div>
 
-                  <label class="text-lg font-semibold cursor-pointer">
-                    <input class="mr-4 scale-150" type="radio" name="MortgageType" value="InterestOnly" />
-                    Interest Only
-                  </label>
-                </div>
+  
             
-            <button type="submit" class="mt-5 bg-[hsl(61,70%,52%)] py-3 px-8 rounded-full flex"><img class="mr-2" src="assets/images/icon-calculator.svg" alt=""> Calculate Repayments</button>
+            <button type="submit" id="submit" class="mt-5 bg-[hsl(61,70%,52%)] py-3 px-8 rounded-full flex"><img class="mr-2" src="assets/images/icon-calculator.svg" alt="calculator"> Calculate Repayments</button>
           </form>
         </div>
         <div class="w-6/12 h-full bg-[hsl(202,55%,16%)] rounded-bl-[120px] flex items-center justify-center flex-col">
@@ -122,5 +131,6 @@
   Total you'll repay over the term -->
 
     <!-- Completed results end -->
+     <script src="script.js"></script>
   </body>
 </html>
