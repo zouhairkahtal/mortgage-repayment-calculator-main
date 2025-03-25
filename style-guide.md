@@ -14,7 +14,7 @@ The designs were created to the following widths:
 ### Primary
 
 - Lime: hsl(61, 70%, 52%)
-- Red: hsl(4, 69%, 50%)
+- Red: hsl(4, 69%, 50%)  
 
 ### Neutral
 
