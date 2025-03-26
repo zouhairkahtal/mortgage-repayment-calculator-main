@@ -26,7 +26,8 @@ const Repayment = document.getElementById("Repayment");
 const InterestOnly = document.getElementById("InterestOnly");
 const submitBTN = document.getElementById("submit");
 const form = document.getElementById("mortgageForm");
-
+let result = 0
+let TotaoResult = 0
 form.addEventListener("submit", (ele) => {
   ele.preventDefault();
 });
@@ -50,48 +51,81 @@ submitBTN.addEventListener("click", () => {
       notError();
   
       if (Repayment.checked) {
-        // حساب القسط الشهري
+        
         let monthlyPayment = calculateMortgageRepayment(
           amountValue,
           rateValue,
-          termValue
+          termValue,
+          
         );
-        if (isNaN(monthlyPayment)) {
-            console.log(`Monthly payment: $${monthlyPayment.toFixed(2)}`);
-        } 
+        const resultDiv=document.getElementById('Result')
+        resultDiv.innerHTML=`
+        <div class="w-full h-full bg-sate-500 p-10">
+                <div>
+                  <h2 class="text-2xl text-white font-bold mb-4">Your results</h2>
+                  <p class="text-sm text-[hsl(200,26%,54%)] font-medium mb-10">
+                    Your results are shown below based on the information you
+                    provided. To adjust the results, edit the form and click
+                    “calculate repayments” again.
+                  </p>
+                </div>
+                <div class="bg-[hsl(202,60%,11%)] p-8 rounded-lg border-t-4 border-[hsl(61,70%,52%)]">
+                  <h2 class="text-sm text-[hsl(200,26%,54%)] font-medium mb-3 ">Your monthly repayments</h2>
+                  <h1 class="text-[hsl(61,70%,52%)] text-5xl font-bold mb-10">£${result.toFixed(1)}</h1>
+                  <div class="w-full px-5 ">
+                  <hr class="border-t border-[hsl(200,24%,40%)] mb-10">
+                  </div>
+                  <h2  class="text-sm text-[hsl(200,26%,54%)] font-medium mb-3 "> Total you'll repay over the term</h2>
+                  <h1 class="text-2xl text-white font-bold mb-4">£${result.toFixed(3)*TotaoResult}</h1>
+                </div>
+              </div>
+        `
+
       }  else if (InterestOnly.checked) {
         // Calculate interest-only payment
         let interestOnlyPayment = calculateInterestOnlyPayment(
           amountValue,
-          rateValue
+          rateValue,
+          termValue
         );
-        console.log(`Interest Only payment: $${interestOnlyPayment.toFixed(2)}`);
-      }
+        const resultDiv=document.getElementById('Result')
+        resultDiv.innerHTML=`
+        <div class="w-full h-full bg-sate-500 p-10">
+                <div>
+                  <h2 class="text-2xl text-white font-bold mb-4">Your results</h2>
+                  <p class="text-sm text-[hsl(200,26%,54%)] font-medium mb-10">
+                    Your results are shown below based on the information you
+                    provided. To adjust the results, edit the form and click
+                    “calculate repayments” again.
+                  </p>
+                </div>
+                <div class="bg-[hsl(202,60%,11%)] p-8 rounded-lg border-t-4 border-[hsl(61,70%,52%)]">
+                  <h2 class="text-sm text-[hsl(200,26%,54%)] font-medium mb-3 ">Your monthly repayments</h2>
+                  <h1 class="text-[hsl(61,70%,52%)] text-5xl font-bold mb-10">£${result.toFixed(1)}</h1>
+                  <div class="w-full px-5 ">
+                  <hr class="border-t border-[hsl(200,24%,40%)] mb-10">
+                  </div>
+                  <h2  class="text-sm text-[hsl(200,26%,54%)] font-medium mb-3 "> Total you'll repay over the term</h2>
+                  <h1 class="text-2xl text-white font-bold mb-4">£${result.toFixed(3)*TotaoResult}</h1>
+                </div>
+              </div>
+        `
+    }
+
     } else {
       error();
     }
   });
   
-  function calculateMortgageRepayment(P, annualRate, years) {
-    if (P <= 0 || annualRate <= 0 || years <= 0) {
-      return NaN; // Return NaN if the values are invalid
-    }
-  
-    let monthlyRate = annualRate / 100 / 12;
-    let totalPayments = years * 12;
-  
-    let M =
-      (P * monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) /
-      (Math.pow(1 + monthlyRate, totalPayments) - 1);
-  
-    return M;
-  }
+
    
 
 //
 
 // error function
 function error() {
+
+    
   const errorText = document.querySelectorAll(".errorText");
   const logoError = document.querySelectorAll(".logoError");
   const borderError = document.querySelectorAll(".borderError");
@@ -130,9 +164,11 @@ function notError() {
     element.classList.remove("border-[hsl(4,69%,50%)]");
     element.classList.add("border-[hsl(200,26%,52%)]");
   });
+
+
 }
 
-//
+// calculateMortgageRepayment
 
 function calculateMortgageRepayment(P, annualRate, years) {
   let monthlyRate = annualRate / 100 / 12;
@@ -141,15 +177,19 @@ function calculateMortgageRepayment(P, annualRate, years) {
   let M =
     (P * monthlyRate * Math.pow(1 + monthlyRate, totalPayments)) /
     (Math.pow(1 + monthlyRate, totalPayments) - 1);
+    TotaoResult = totalPayments
+    result = M
+  return result;
 
-  console.log(`Monthly payment: $${M.toFixed(2)}`);
-  return M;
 }
 
-
-function calculateInterestOnlyPayment(P, annualRate) {
+// calculateInterestOnlyPayment
+function calculateInterestOnlyPayment(P, annualRate,years) {
     let monthlyRate = annualRate / 100 / 12; 
     let interestPayment = P * monthlyRate; 
+    let totalPayments = years * 12;
+    TotaoResult = totalPayments
+    result = interestPayment
     return interestPayment;
   }
   
