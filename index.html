@@ -33,7 +33,7 @@
     </style>
   </head>
   <body
-    class="*:m-0 *:p-0 *:box-border"
+    class="*:m-0 *:p-0 *:box-border ease-in"
     style="font-family: 'Plus Jakarta Sans', sans-serif"
   >
     <div
@@ -47,31 +47,36 @@
             <h1 class="text-[hsl(202,55%,16%)] text-2xl font-bold">
               Mortgage Calculator
             </h1>
-            <button class="text-[hsl(200,26%,54%)] underline decoration-1">
+            <button class="text-[hsl(200,26%,54%)] underline decoration-1 hover:text-black">
               Clear All
             </button>
           </div>
           <form
+          class="group"
             id="mortgageForm"
             method="get"
             enctype="application/x-www-form-urlencoded"
           >
+          <div class="group">
+
             <label for="amount" class="text-sm text-[hsl(200,26%,54%)]">
               Mortgage Amount </label
-            ><br />
-            <input
+              ><br />
+              <input
               step="1"
               type="number"
-              class="borderError mb-5 mt-2 w-full text-[hsl(202,55%,16%)] font-bold pl-16 p-2 border rounded border-[hsl(200,26%,54%)]"
+              class="borderError group-focus:border-[hsl(61,70%,52%)] focus:outline-none mb-5 mt-2 w-full text-[hsl(202,55%,16%)] font-bold pl-16 p-2 border  hover:border-black cursor-pointer rounded border-[hsl(200,26%,54%)]"
               inputmode="numeric"
               id="amount"
               name="amount"
-            /><br />
-            <div
-              class="logoError relative bottom-[60px] w-14 h-[38px] flex items-center justify-center left-[1px] rounded-l-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]"
-            >
+              /><br />
+              <div
+              class="logoError group-bg-[hsl(61,70%,52%)] relative bottom-[60px] w-14 h-[38px] flex items-center justify-center left-[1px] rounded-l-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]"
+              >
               £
             </div>
+          </div>
+            
             <div class="errorText relative bottom-12 hidden">
               <p class="text-xs text-[hsl(4,69%,50%)]">
                 This field is required
@@ -83,7 +88,7 @@
                 <br />
                 <input
                   step="1"
-                  class="borderError mt-2 w-56 p-2 border text-[hsl(202,55%,16%)] font-bold pl-4 pr-[100px] rounded-md border-[hsl(200,26%,54%)]"
+                  class="borderError mt-2 w-56 p-2 border  hover:border-black cursor-pointer text-[hsl(202,55%,16%)] font-bold pl-4 pr-[100px] rounded-md border-[hsl(200,26%,54%)]"
                   type="number"
                   id="Term"
                   name="Term"
@@ -105,7 +110,7 @@
                 <input
                   step="0.01"
                   min="1"
-                  class="borderError mt-2 w-56 p-2 border text-[hsl(202,55%,16%)] font-bold pl-4 pr-[100px] rounded-md border-[hsl(200,26%,54%)]"
+                  class="borderError mt-2 w-56 p-2 border hover:border-black cursor-pointer text-[hsl(202,55%,16%)] font-bold pl-4 pr-[100px] rounded-md border-[hsl(200,26%,54%)]"
                   type="number"
                   id="Rate"
                   name="Rate"
@@ -127,20 +132,20 @@
             ><br />
             <!-- Option 1 -->
             <div
-              class="radio-container mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)] transition-all cursor-pointer"
+              class="radio-container mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)] hover:border-[hsl(61,70%,52%)] transition-all cursor-pointer"
             >
               <label
-                class="text-lg font-semibold flex items-center gap-3 cursor-pointer"
+                class="text-lg font-semibold flex items-center gap-3 cursor-pointer "
               >
                 <input
-                  class="hidden"
+                  class="hidden "
                   type="radio"
                   name="MortgageType"
                   value="Repayment"
                   id="Repayment"
                 />
                 <span
-                  class="w-5 h-5 border border-gray-500 rounded-full flex items-center justify-center"
+                  class="w-5 h-5  border border-gray-500 hover:border-[hsl(61,70%,52%)] rounded-full flex items-center justify-center"
                 >
                   <span
                     class="w-3 h-3 bg-[hsl(61,70%,52%)] outline outline-offset-2 outline-3 outline-[hsl(61,70%,52%)] rounded-full opacity-0 transition-opacity"
@@ -152,7 +157,7 @@
 
             <!-- Option 2 -->
             <div
-              class="radio-container mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)] transition-all cursor-pointer"
+              class="radio-container mt-2 mb-2 p-3 border rounded-md border-[hsl(200,26%,54%)] hover:border-[hsl(61,70%,52%)] transition-all cursor-pointer"
             >
               <label
                 class="text-lg font-semibold flex items-center gap-3 cursor-pointer"
@@ -184,7 +189,7 @@
             <button
               type="submit"
               id="submit"
-              class="mt-5 bg-[hsl(61,70%,52%)] py-3 px-8 rounded-full flex"
+              class="mt-5 bg-[hsl(61,70%,52%)] hover:bg-[#d7da2f70] py-3 px-8 rounded-full flex"
             >
               <img
                 class="mr-2"
