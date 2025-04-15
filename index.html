@@ -37,17 +37,17 @@
     style="font-family: 'Plus Jakarta Sans', sans-serif"
   >
     <div
-      class="w-full h-screen min-h-[900px] flex items-center justify-center bg-[hsl(202,86%,94%)]"
+      class="w-full h-screen max-[1140px]:py-5 max-[530px]:py-0 max-[1140px]:h-[1300px]  min-h-[900px] flex items-center justify-center bg-[hsl(202,86%,94%)]"
     >
       <div
-        class="w-[1100px] h-[650px] bg-white rounded-3xl flex items-start justify-center overflow-hidden"
+        class="w-[1100px] max-[530px]:w-full max-[1140px]:w-10/12 max-[950px]:w-[500px] max-[1140px]:flex-col max-[1140px]:justify-center max-[1140px]:items-center max-[1140px]:h-full h-[650px] bg-white rounded-3xl flex items-start justify-center overflow-hidden"
       >
-        <div class="w-6/12 h-full p-10">
+        <div class="w-6/12 max-[1140px]:w-8/12 max-[950px]:w-full h-full p-10">
           <div class="flex items-center justify-between w-full mb-8">
             <h1 class="text-[hsl(202,55%,16%)] text-2xl font-bold">
               Mortgage Calculator
             </h1>
-            <button class="text-[hsl(200,26%,54%)] underline decoration-1 hover:text-black">
+            <button id="Clearbtn" class="text-[hsl(200,26%,54%)] underline decoration-1 hover:text-black">
               Clear All
             </button>
           </div>
@@ -57,48 +57,50 @@
             method="get"
             enctype="application/x-www-form-urlencoded"
           >
-          <div class="group">
+          <div>
 
             <label for="amount" class="text-sm text-[hsl(200,26%,54%)]">
               Mortgage Amount </label
               ><br />
               <input
               step="1"
+              
               type="number"
-              class="borderError group-focus:border-[hsl(61,70%,52%)] focus:outline-none mb-5 mt-2 w-full text-[hsl(202,55%,16%)] font-bold pl-16 p-2 border  hover:border-black cursor-pointer rounded border-[hsl(200,26%,54%)]"
+              
+              class=" max-[530px]:w-[405px] max-[530px]:h-14 borderError-1 focus:border-[hsl(61,70%,52%)] focus:outline-none  mb-5 mt-2 w-full text-[hsl(202,55%,16%)] font-bold pl-16 p-2 border  hover:border-black cursor-pointer rounded border-[hsl(200,26%,54%)]"
               inputmode="numeric"
               id="amount"
               name="amount"
               /><br />
               <div
-              class="logoError group-bg-[hsl(61,70%,52%)] relative bottom-[60px] w-14 h-[38px] flex items-center justify-center left-[1px] rounded-l-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]"
+              class="logoError logoError-1 group-bg-[hsl(61,70%,52%)] relative bottom-[60px] w-14 h-[38px] max-[530px]:h-[54px] max-[530px]:bottom-[75px] flex items-center justify-center left-[1px] rounded-l-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]"
               >
               £
             </div>
           </div>
             
-            <div class="errorText relative bottom-12 hidden">
+            <div class="errorText errorText-1 relative bottom-12 hidden">
               <p class="text-xs text-[hsl(4,69%,50%)]">
                 This field is required
               </p>
             </div>
-            <div class="flex justify-between mb-5">
+            <div class="max-[950px]:flex-col flex justify-between mb-5">
               <label class="text-sm text-[hsl(200,26%,54%)]">
                 Mortgage Term
                 <br />
                 <input
                   step="1"
-                  class="borderError mt-2 w-56 p-2 border  hover:border-black cursor-pointer text-[hsl(202,55%,16%)] font-bold pl-4 pr-[100px] rounded-md border-[hsl(200,26%,54%)]"
+                  class="max-[530px]:w-[405px] max-[530px]:h-14 borderError-2 mt-2 mr-10 w-56 max-[950px]:w-full p-2 pl-4 border   hover:border-black cursor-pointer text-[hsl(202,55%,16%)] font-bold  pr-[100px] rounded-md border-[hsl(200,26%,54%)]"
                   type="number"
                   id="Term"
                   name="Term"
                 />
                 <div
-                  class="logoError relative bottom-[36px] w-14 h-[34px] flex items-center justify-center left-[166px] rounded-r-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]"
+                  class="max-[530px]:h-[54px] max-[530px]:bottom-[55px] logoError logoError-2 relative bottom-[36px] max-[950px]:left-[362px] w-14 h-[34px] flex items-center justify-center left-[166px] rounded-r-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]"
                 >
                   years
                 </div>
-                <div class="errorText relative bottom-6 hidden">
+                <div class="errorText errorText-2 relative bottom-6 hidden">
                   <p class="text-xs text-[hsl(4,69%,50%)]">
                     This field is required
                   </p>
@@ -110,17 +112,17 @@
                 <input
                   step="0.01"
                   min="1"
-                  class="borderError mt-2 w-56 p-2 border hover:border-black cursor-pointer text-[hsl(202,55%,16%)] font-bold pl-4 pr-[100px] rounded-md border-[hsl(200,26%,54%)]"
+                  class="max-[530px]:w-[405px] borderError-3 mt-2 max-[950px]:min-w-full w-56 p-2 border hover:border-black cursor-pointer text-[hsl(202,55%,16%)] font-bold pl-4 pr-[100px] rounded-md border-[hsl(200,26%,54%)]"
                   type="number"
                   id="Rate"
                   name="Rate"
                 />
                 <div
-                  class="logoError relative bottom-[36px] w-14 h-[34px] flex items-center justify-center left-[166px] rounded-r-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]"
+                  class=" max-[950px]:left-[362px] logoError logoError-3 relative bottom-[36px] w-14 h-[34px] flex items-center justify-center left-[166px] rounded-r-md border border-transparent bg-[hsl(202,86%,94%)] text-[hsl(200,24%,40%)]"
                 >
                   %
                 </div>
-                <div class="errorText relative bottom-6 hidden">
+                <div class="errorText errorText-3 relative bottom-6 hidden">
                   <p class="text-xs text-[hsl(4,69%,50%)]">
                     This field is required
                   </p>
@@ -180,7 +182,7 @@
               </label>
             </div>
 
-            <div class="errorText relative top-1 hidden">
+            <div class="errorText errorText-4 relative top-1 hidden">
               <p class="text-xs text-[hsl(4,69%,50%)]">
                 This field is required
               </p>
@@ -202,7 +204,7 @@
         </div>
         <div
           id="Result"
-          class="w-6/12 h-full bg-[hsl(202,55%,16%)] rounded-bl-[120px] flex items-center justify-center flex-col"
+          class="w-full max-[1140px]:rounded-b-lg max-[530px]:rounded-b-none h-full bg-[hsl(202,55%,16%)] rounded-bl-[120px] flex items-center justify-center flex-col"
         >
           <img
             class="mb-5"
